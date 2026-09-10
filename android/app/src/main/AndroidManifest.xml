@@ -1,6 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
-        android:label="smart_home_iot"
+        android:label="智能家居"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
