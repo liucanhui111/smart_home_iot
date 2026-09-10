@@ -511,33 +511,36 @@ class _DeviceAddScreenState extends State<DeviceAddScreen> {
       showDialog(
         context: context,
         barrierDismissible: false,
-        builder: (ctx) => AlertDialog(
-          title: const Text('连接 WiFi'),
-          content: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              const Icon(Icons.wifi, size: 48, color: Colors.blue),
-              const SizedBox(height: 16),
-              Text('请手动连接 WiFi:', style: theme.textTheme.bodyLarge),
-              const SizedBox(height: 8),
-              Text(
-                _selectedWifi!.ssid,
-                style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(height: 16),
-              const Text('1. 打开手机设置\n2. 连接上方 WiFi\n3. 输入密码\n4. 返回此 App'),
-            ],
-          ),
-          actions: [
-            FilledButton(
-              onPressed: () {
-                Navigator.pop(ctx);
-                _checkCurrentWifi();
-              },
-              child: const Text('已连接，继续'),
+        builder: (ctx) {
+          final dialogTheme = Theme.of(ctx);
+          return AlertDialog(
+            title: const Text('连接 WiFi'),
+            content: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.wifi, size: 48, color: Colors.blue),
+                const SizedBox(height: 16),
+                Text('请手动连接 WiFi:', style: dialogTheme.textTheme.bodyLarge),
+                const SizedBox(height: 8),
+                Text(
+                  _selectedWifi!.ssid,
+                  style: dialogTheme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(height: 16),
+                const Text('1. 打开手机设置\n2. 连接上方 WiFi\n3. 输入密码\n4. 返回此 App'),
+              ],
             ),
-          ],
-        ),
+            actions: [
+              FilledButton(
+                onPressed: () {
+                  Navigator.pop(ctx);
+                  _checkCurrentWifi();
+                },
+                child: const Text('已连接，继续'),
+              ),
+            ],
+          );
+        },
       );
     }
 
