@@ -17,6 +17,9 @@ dependencies:
   uuid: ^4.0.0
   intl: ^0.19.0
   cupertino_icons: ^1.0.6
+  wifi_scan: ^0.4.1+1
+  network_info_plus: ^5.0.3
+  udp: ^5.0.3
 
 dev_dependencies:
   flutter_test:
